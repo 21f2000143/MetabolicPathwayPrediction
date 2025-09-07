@@ -6,19 +6,32 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
+  - backcall=0.2.0=pyh9f0ad1d_0
+  - backports=1.0=pyhd8ed1ab_4
+  - backports.functools_lru_cache=2.0.0=pyhd8ed1ab_0
   - blas=1.0=mkl
+  - boost=1.66.0=py36_1
+  - boost-cpp=1.66.0=1
   - bzip2=1.0.8=h4bc722e_7
   - ca-certificates=2025.8.3=hbd8a1cb_0
   - cairo=1.14.6=noxhf484d3e_0
   - cffi=1.14.6=py36hd8eec40_1
   - cudatoolkit=9.0=h13b8566_0
   - cudnn=7.6.5=cuda9.0_0
+  - decorator=5.1.1=pyhd8ed1ab_0
+  - entrypoints=0.4=pyhd8ed1ab_0
   - fontconfig=2.13.1=he4413a7_1000
   - freetype=2.9.1=he983fc9_1006
   - icu=58.2=hf484d3e_1000
   - intel-openmp=2025.0.0=h06a4308_1171
+  - ipykernel=5.5.5=py36hcb3619a_0
+  - ipython=7.16.1=py36he448a4c_2
+  - ipython_genutils=0.2.0=pyhd8ed1ab_1
+  - jedi=0.17.2=py36h5fab9bb_1
   - joblib=1.2.0=pyhd8ed1ab_0
   - jpeg=9e=h0b41bf4_3
+  - jupyter_client=7.1.2=pyhd8ed1ab_0
+  - jupyter_core=4.8.1=py36h5fab9bb_0
   - lcms2=2.12=hddcbb42_0
   - lerc=3.0=h9c3ff4c_0
   - libblas=3.9.0=1_h86c2bf4_netlib
@@ -35,6 +48,7 @@ dependencies:
   - libiconv=1.18=h3b78370_2
   - liblapack=3.9.0=12_hd37a5e2_netlib
   - libpng=1.6.37=h21135ba_2
+  - libsodium=1.0.18=h36c2ea0_1
   - libstdcxx=15.1.0=h8f9b012_5
   - libstdcxx-ng=15.1.0=h4852527_5
   - libtiff=4.3.0=h0fcbabc_4
@@ -46,31 +60,46 @@ dependencies:
   - mkl=2018.0.3=1
   - nccl=1.3.5=cuda9.0_0
   - ncurses=5.9=1
+  - nest-asyncio=1.6.0=pyhd8ed1ab_0
   - ninja=1.13.1=h171cf75_0
   - numpy=1.19.5=py36hfc0c790_2
   - olefile=0.46=pyh9f0ad1d_1
   - openssl=1.0.2u=h516909a_0
   - pandas=1.1.5=py36h284efc9_0
+  - parso=0.7.1=pyh9f0ad1d_0
+  - patsy=0.5.6=pyhd8ed1ab_0
+  - pexpect=4.8.0=pyh1a96a4e_2
+  - pickleshare=0.7.5=py_1003
   - pillow=8.0.1=py36h8328e55_0
   - pip=21.3.1=pyhd8ed1ab_0
   - pixman=0.38.0=h516909a_1003
+  - prompt-toolkit=3.0.36=pyha770c72_0
+  - ptyprocess=0.7.0=pyhd3deb0d_0
   - py-boost=1.67.0=py36h04863e7_4
+  - pycairo=1.16.3=py36_0
   - pycparser=2.21=pyhd8ed1ab_0
+  - pygments=2.14.0=pyhd8ed1ab_0
   - python=3.6.5=1
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.6=2_cp36m
   - pytorch=0.4.1=py36ha74772b_0
   - pytz=2023.3.post1=pyhd8ed1ab_0
-  - rdkit=2018.03.2.0=py36h6bb024c_1
+  - pyzmq=22.3.0=py36h7068817_0
+  - rdkit=2017.09.3=py36_0
   - readline=7.0=0
   - scikit-learn=0.21.3=py36hcdab131_0
   - scipy=1.5.3=py36h81d768a_1
   - setuptools=58.0.4=py36h5fab9bb_2
   - six=1.16.0=pyh6c4a22f_0
   - sqlite=3.20.1=2
+  - statsmodels=0.12.2=py36he33b4a0_0
   - tk=8.6.12=h27826a3_0
+  - tornado=6.1=py36h8f6f2f9_1
+  - traitlets=4.3.3=pyhd8ed1ab_2
+  - wcwidth=0.2.10=pyhd8ed1ab_0
   - wheel=0.37.1=pyhd8ed1ab_0
   - xz=5.2.6=h166bdaf_0
+  - zeromq=4.3.5=h59595ed_1
   - zlib=1.2.11=h166bdaf_1014
   - zstd=1.5.2=h8a70e8d_1
   - pip:
@@ -80,4 +109,3 @@ dependencies:
       - lxml==5.4.0
       - requests==2.27.1
       - urllib3==1.26.20
-prefix: /opt/conda/envs/chem_gcn

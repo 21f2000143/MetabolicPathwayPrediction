@@ -25,50 +25,35 @@ class KEGGPathway:
         self.className = className
         self.compounds = []
         self.__compoundsFetched = False
-        #self.url = url
 
     #
-    #
+    # REST API URL to get compounds linked to this pathway
     #
     def getCompoundsURL(self):
-        return("https://www.genome.jp/dbget-bin/get_linkdb?-t+compound+path:map" + self.id)
- 
+        return f"https://rest.kegg.jp/link/compound/path:map{self.id}"
 
     #
-    # Fetch a list of KEGGCompound objects associated with this pathway.
+    # Fetch a list of KEGGCompound objects associated with this pathway
     #
     def fetchCompounds(self):
-        #TODO: Rewrite this!
-        if (self.__compoundsFetched):
-            return(self.compounds)
-        retval = []
-        compoundsPage = requests.get(self.getCompoundsURL())
-        print("The execution till here!")
-        print(compoundsPage.content)
-        compoundsPageTree = html.fromstring(compoundsPage.content)
-        print(compoundsPageTree, "Sachin")
-        compoundIDList = compoundsPageTree.xpath('//pre/a/text()')
-        # compoundIDList should contain a list of strings like "C00033".
+        if self.__compoundsFetched:
+            return self.compounds
 
-#        modulePage = requests.get(self.getURL())
-#        modulePageTree = html.fromstring(modulePage.content)
-        #modulePageString = modulePage.text
-        #print("All compounds for this module: ")
-        #print(modulePageString.split("www_bget?C"))
-#        reactionCompoundLinkNodes = modulePageTree.xpath('//div[@id="definition"]/table/tr/td[text()="Reaction"]/../td[2]/a')
-        #print(type(reactionCompoundLinkNodes))
-        #print(reactionCompoundLinkNodes)
-#        compoundNameList = []
-#        for reactionCompoundLinkNode in reactionCompoundLinkNodes:
-#            reactionCompoundLink = reactionCompoundLinkNode.xpath('text()')
-#            if (reactionCompoundLink[0][0] == 'C'):
-                #print("Compound = " + reactionCompoundLink[0])
-                #compoundNameList.append(reactionCompoundLink[0])
-        for compoundID in compoundIDList:        
-            retval.append(KEGGCompound(compoundID))
+        retval = []
+        url = self.getCompoundsURL()
+        response = requests.get(url)
+        response.raise_for_status()  # raise error if request fails
+
+        # Each line looks like: "path:map00010\tcpd:C00022"
+        lines = response.text.strip().splitlines()
+        compoundIDs = [line.split("\t")[1].split(":")[1] for line in lines]
+
+        for cid in compoundIDs:
+            retval.append(KEGGCompound(cid))  # assuming KEGGCompound class exists
+
         self.compounds = retval
         self.__compoundsFetched = True
-        return(retval)
+        return retval
 #
 #
 #
